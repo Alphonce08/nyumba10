@@ -6,4 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <TextView
+        android:id="@+id/mTvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="54dp"
+        android:textColor="#03A9F4"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Login Here" />
+
+    <EditText
+        android:id="@+id/mEdtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="63dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Enter Email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTvTitle" />
+
+    <EditText
+        android:id="@+id/mEdtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="59dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Enter Password"
+        app:layout_constraintBottom_toTopOf="@+id/mBtnLogin"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/mBtnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="57dp"
+        android:text="LOGIN"
+        app:layout_constraintBottom_toTopOf="@+id/mTvRegister"
+        app:layout_constraintEnd_toEndOf="@+id/mTvRegister" />
+
+    <TextView
+        android:id="@+id/mTvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="117dp"
+        android:layout_marginBottom="211dp"
+        android:text="No account yet? Register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/mTvReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:text="Reset"
+        app:layout_constraintStart_toStartOf="@+id/mTvRegister"
+        app:layout_constraintTop_toBottomOf="@+id/mTvRegister"
+        tools:text="Reset password" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
