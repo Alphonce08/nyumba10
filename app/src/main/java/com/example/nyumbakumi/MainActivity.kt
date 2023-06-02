@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -13,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
     lateinit var edtEmail:EditText
     lateinit var edtPassword:EditText
-    lateinit var btnRegister:EditText
+    lateinit var btnRegister:Button
     lateinit var tvLogin:TextView
     lateinit var progress:ProgressDialog
     lateinit var mAuth:FirebaseAuth
@@ -39,6 +40,9 @@ class MainActivity : AppCompatActivity() {
                 edtEmail.requestFocus()
             } else if (password.isEmpty()){
                 edtPassword.setError("Please fill this input")
+                edtPassword.requestFocus()
+            }else if(password.length < 6 ){
+                edtPassword.setError("Password is too short")
                 edtPassword.requestFocus()
             } else {
                 //Proceed to register the user

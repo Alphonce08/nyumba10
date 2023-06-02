@@ -49,9 +49,8 @@ class LoginActivity : AppCompatActivity() {
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                     progress.dismiss()
                     if (it.isComplete){
-                        Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
-                        mAuth.signOut()
-                        startActivity(Intent(this, LoginActivity::class.java))
+                        Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, HomeActivity::class.java))
                         finish()
 
                     } else {
