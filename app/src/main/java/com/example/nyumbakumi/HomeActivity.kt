@@ -17,7 +17,7 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext,AddhousesActivity::class.java))
         }
         cardViewHouses.setOnClickListener {
-
+            startActivity(Intent(applicationContext,ViewhousesActivity::class.java))
         }
     }
 }

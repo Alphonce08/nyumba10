@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.io.IOException
@@ -73,6 +74,24 @@ class AddhousesActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Choose Image", Toast.LENGTH_SHORT).show()
                 }else {
                     var ref = storageReference.child("Houses/$imageId")
+                    progress.show()
+                    ref.putFile(filepath).addOnCompleteListener {
+                        progress.dismiss()
+                    if (it.isSuccessful){
+                        //proceed to store other data into the db
+                        ref.downloadUrl.addOnSuccessListener {
+                            var imageUrl = it.toString()
+                            var houseData = House(houseNumber,houseSize,housePrice,userId!!,imageId,imageUrl)
+                            var dbRef = FirebaseDatabase.getInstance()
+                                .getReference().child("Houses/$imageId")
+                            dbRef.setValue(houseData)
+                            Toast.makeText(applicationContext, "Upload successful", Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        Toast.makeText(applicationContext,it.exception!!.message,Toast.LENGTH_SHORT).show()
+                    }
+                    }
+
                 }
             }
         }
