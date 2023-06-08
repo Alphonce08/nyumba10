@@ -11,47 +11,65 @@
         android:id="@+id/mEdtHouseNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="76dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="textPersonName"
         android:text="Enter house number"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="86dp" />
+        app:layout_constraintBottom_toTopOf="@+id/mEdtSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 
     <EditText
         android:id="@+id/mEdtSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
         android:ems="10"
         android:hint="Enter size"
         android:inputType="text"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="174dp" />
+        app:layout_constraintBottom_toTopOf="@+id/mEdtprice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mEdtHouseNumber" />
+
 
     <EditText
         android:id="@+id/mEdtprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="40dp"
         android:ems="10"
         android:hint="Enter Price"
         android:inputType="text"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="281dp" />
+        app:layout_constraintBottom_toTopOf="@+id/mBtnUpload"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mEdtSize" />
+
 
     <Button
         android:id="@+id/mBtnUpload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="74dp"
         android:text="Upload"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="512dp" />
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mImgPhoto" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/image"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="347dp" />
+        android:id="@+id/mImgPhoto"
+        android:layout_width="218dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="83dp"
+        app:layout_constraintBottom_toTopOf="@+id/mBtnUpload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mEdtprice"
+        app:srcCompat="@drawable/image" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
