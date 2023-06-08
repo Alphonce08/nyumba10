@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.google.firebase.database.FirebaseDatabase
 
 class CustomAdapter(var context: Context, var data:ArrayList<House>):BaseAdapter() {
@@ -45,12 +46,15 @@ class CustomAdapter(var context: Context, var data:ArrayList<House>):BaseAdapter
         viewHolder.mTxtHouseNumber.text = item.houseNumber
         viewHolder.mTxtHousePrice.text = item.housePrice
         viewHolder.mTxtHouseSize.text = item.houseSize
+        Glide.with(context).load(item.houseImage).into(viewHolder.imgHouse)
         viewHolder.btnDelete.setOnClickListener {
             var delRef = FirebaseDatabase.getInstance()
                 .getReference().child("Houses/"+item.houseId)
             delRef.removeValue()
         }
-        //view.holder
+        viewHolder.btnUpdate.setOnClickListener {
+
+        }
         return view as View
     }
 
