@@ -16,7 +16,7 @@ class CustomAdapter(var context: Context, var data:ArrayList<House>):BaseAdapter
         var mTxtHouseNumber:TextView
         var mTxtHouseSize:TextView
         var mTxtHousePrice:TextView
-        var imgHouse:ImageView
+        var imgHousePic:ImageView
         var btnDelete:Button
         var btnUpdate:Button
         
@@ -25,7 +25,7 @@ class CustomAdapter(var context: Context, var data:ArrayList<House>):BaseAdapter
             this.mTxtHouseNumber = row?.findViewById(R.id.mTvHousesNumber) as TextView
             this.mTxtHousePrice = row?.findViewById(R.id.mTvHousePrice) as TextView
             this.mTxtHouseSize = row?.findViewById(R.id.mTvHousesize) as TextView
-            this.imgHouse = row?.findViewById(R.id.mimgHousePic) as ImageView
+            this.imgHousePic = row?.findViewById(R.id.mimgHousePic) as ImageView
             this.btnDelete = row?.findViewById(R.id.mBtnDelete) as Button
             this.btnUpdate = row?.findViewById(R.id.mBtnupdate) as Button
         }
@@ -46,7 +46,7 @@ class CustomAdapter(var context: Context, var data:ArrayList<House>):BaseAdapter
         viewHolder.mTxtHouseNumber.text = item.houseNumber
         viewHolder.mTxtHousePrice.text = item.housePrice
         viewHolder.mTxtHouseSize.text = item.houseSize
-        Glide.with(context).load(item.houseImage).into(viewHolder.imgHouse)
+        Glide.with(context).load(item.houseImage).into(viewHolder.imgHousePic)
         viewHolder.btnDelete.setOnClickListener {
             var delRef = FirebaseDatabase.getInstance()
                 .getReference().child("Houses/"+item.houseId)
